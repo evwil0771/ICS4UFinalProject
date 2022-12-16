@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+/* Evan Wilson, Braeden Cross, Yukie Zhang
+ * Dec 16/22
+ * A main class for our space invaders program that allows the user to naviage the main menu */
 package ics4ufinalproject;
 
 public class MainMenu extends javax.swing.JFrame {
@@ -27,7 +26,7 @@ public class MainMenu extends javax.swing.JFrame {
         playBtn = new javax.swing.JButton();
         helpBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        gameNameLbl = new javax.swing.JLabel();
         bagLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,16 +82,17 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.add(exitBtn);
         exitBtn.setBounds(0, 310, 160, 50);
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Welcome to Ship Invaders");
-        jLabel1.setAlignmentY(0.0F);
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 0, 530, 50);
+        gameNameLbl.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        gameNameLbl.setForeground(new java.awt.Color(255, 255, 255));
+        gameNameLbl.setText("Welcome to Ship Invaders");
+        gameNameLbl.setAlignmentY(0.0F);
+        jPanel2.add(gameNameLbl);
+        gameNameLbl.setBounds(30, 0, 530, 50);
 
+        bagLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ics4ufinalproject/spaceBackground.jpg"))); // NOI18N
         bagLbl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(bagLbl);
-        bagLbl.setBounds(0, 0, 580, 4);
+        bagLbl.setBounds(0, 0, 580, 629);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,19 +109,22 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void leaderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBtnActionPerformed
-        // TODO add your handling code here:
+        //Open a new leaderboard window if leaderboard is pressed
+        new LeaderBoard().setVisible(true);
     }//GEN-LAST:event_leaderBtnActionPerformed
 
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_playBtnActionPerformed
 
     private void helpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpBtnActionPerformed
-        // TODO add your handling code here:
+        //Open a new help window if leaderboard is pressed
+        new Help().setVisible(true);
     }//GEN-LAST:event_helpBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        // TODO add your handling code here:
+        //If the user presses the exit button
+        System.exit(0);
     }//GEN-LAST:event_exitBtnActionPerformed
 
     /**
@@ -162,8 +165,8 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bagLbl;
     private javax.swing.JButton exitBtn;
+    private javax.swing.JLabel gameNameLbl;
     private javax.swing.JButton helpBtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton leaderBtn;
     private javax.swing.JButton playBtn;
