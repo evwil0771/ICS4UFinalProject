@@ -122,10 +122,10 @@ public class Enemy implements Entity{
     public String toString(){
         String msg = "Name: " + name + "\nHealth: " + health + "\nHeight: " + height + "\nWidth: " + width;
         if (attacks.size() == 1){
-            msg += "\nAttack: " + attacks.get(0).toString();
+            msg += "\nAttack:\n" + attacks.get(0).toString();
         } else {
             for (int i = 0; i < attacks.size(); i++){
-                msg += "\nAttack " + (i+1) + ":" + attacks.get(i).toString();
+                msg += "\nAttack " + (i+1) + ":\n" + attacks.get(i).toString();
             }
         }
         return msg;
