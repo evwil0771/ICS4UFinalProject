@@ -16,11 +16,7 @@ public interface Entity {
 
     public int getXPos();
 
-    public void setXPos(int x);
-
     public int getYPos();
-
-    public void setYPos(int y);
 
     public int getWidth();
 
@@ -31,8 +27,6 @@ public interface Entity {
     public Attack getAttack(int i);
 
     public void setAttack(int i, Attack a);
-
-    abstract void draw(int x, int y, int h, int w);
 
     public void draw(int x, int y, int h, int w);
 
