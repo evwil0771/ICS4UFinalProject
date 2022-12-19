@@ -54,7 +54,7 @@ public class Attack {
     }
     
     public String toString(){
-        String msg = "Damage: " + damage + "\nColour: " + c;
+        String msg = " Damage: " + damage + "\n Colour: " + c;
         return msg;
     }
     
