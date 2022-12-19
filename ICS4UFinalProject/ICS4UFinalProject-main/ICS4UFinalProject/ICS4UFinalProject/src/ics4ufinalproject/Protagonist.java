@@ -96,7 +96,7 @@ public class Protagonist implements Entity{
     }
     
     public String toString(){
-        String msg = "Name: " + name + "\nHealth: " + health + "\nHeight: " + height + "\nWidth: " + width + "\nAttack: " + attack.toString();
+        String msg = "Name: " + name + "\nHealth: " + health + "\nHeight: " + height + "\nWidth: " + width + "\nAttack:\n" + attack.toString();
         return msg;
     }
     
