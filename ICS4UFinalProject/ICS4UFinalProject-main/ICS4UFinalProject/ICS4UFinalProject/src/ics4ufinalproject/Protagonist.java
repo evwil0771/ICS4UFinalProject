@@ -13,6 +13,7 @@ public class Protagonist implements Entity{
     private int height;
     private int width;
     private Attack attack;
+    private boolean dead;
     
     public Protagonist(String name, int health, int posX, int posY, int height, int width, Attack attack){
         this.name = name;
@@ -22,6 +23,7 @@ public class Protagonist implements Entity{
         this.height = height;
         this.width = width;
         this.attack = attack;
+        dead = false;
     }
     
     public String getName() {
@@ -44,16 +46,8 @@ public class Protagonist implements Entity{
         return x;
     }
 
-    public void setXPos(int x) {
-        this.x = x;
-    }
-
     public int getYPos() {
         return y;
-    }
-
-    public void setYPos(int y) {
-        this.y = y;
     }
 
     public int getWidth() {
@@ -86,14 +80,28 @@ public class Protagonist implements Entity{
         this.y = y;
     }
     
+    public boolean isDead(){
+        return dead;
+    }
+    
+    public void setDead(boolean d){
+        dead = d;
+    }
+    
+    public void impact(Attack a){
+        health -= a.getDamage();
+        if (health <= 0){
+            dead = true;
+        }
+    }
+    
     public String toString(){
-        String msg = "";
+        String msg = "Name: " + name + "\nHealth: " + health + "\nHeight: " + height + "\nWidth: " + width + "\nAttack: " + attack.toString();
         return msg;
     }
     
     public Protagonist clone(){
         Protagonist p = new Protagonist(name, health, x, y, height, width, attack);
-        int i = 0;
         return p;
     }
     
