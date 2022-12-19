@@ -34,8 +34,12 @@ public interface Entity {
 
     abstract void draw(int x, int y, int h, int w);
 
+    public void draw(int x, int y, int h, int w);
+
     public void move(int x, int y);
 
+    public void impact(Attack a);
+    
     public String toString();
 
 }
