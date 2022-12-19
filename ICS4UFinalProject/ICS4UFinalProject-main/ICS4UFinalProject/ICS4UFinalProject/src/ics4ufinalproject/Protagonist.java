@@ -1,6 +1,7 @@
 /*
  * B Cross, E Wilson, Y Zhang
  * Dec 15, 2022
+ * The user's playable character
  */
 package ics4ufinalproject;
 
