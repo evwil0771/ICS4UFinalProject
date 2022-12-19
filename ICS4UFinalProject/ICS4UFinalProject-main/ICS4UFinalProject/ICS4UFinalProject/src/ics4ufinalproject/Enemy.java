@@ -3,7 +3,6 @@
  * Dec 16, 2022
  */
 package ics4ufinalproject;
-
 import java.util.ArrayList;
 
 public class Enemy implements Entity{
@@ -16,6 +15,7 @@ public class Enemy implements Entity{
     private int width;
     private ArrayList<Attack> attacks;
     private boolean boss;
+    private boolean dead;
 
     public Enemy(String name, int health, int posX, int posY, int height, int width, Attack attack, boolean boss){
         this.name = name;
@@ -26,6 +26,7 @@ public class Enemy implements Entity{
         this.width = width;
         attacks.add(attack);
         this.boss = boss;
+        dead = false;
     }
     
     public Enemy(String name, int health, int posX, int posY, int height, int width, ArrayList<Attack> attacks, boolean boss){
@@ -102,9 +103,31 @@ public class Enemy implements Entity{
     public void setBoss(boolean b){
         boss = b;
     }
+    
+    public void impact(Attack a){
+        health -= a.getDamage();
+        if (health <= 0){
+            dead = true;
+        }
+    }
+    
+    public boolean isDead(){
+        return dead;
+    }
+    
+    public void setDead(boolean d){
+        dead = d;
+    }
 
     public String toString(){
-        String msg = "";
+        String msg = "Name: " + name + "\nHealth: " + health + "\nHeight: " + height + "\nWidth: " + width;
+        if (attacks.size() == 1){
+            msg += "\nAttack: " + attacks.get(0);
+        } else {
+            for (int i = 0; i < attacks.size(); i++){
+                msg += "\nAttack " + (i+1) + ":" + attacks.get(i);
+            }
+        }
         return msg;
     }
     
