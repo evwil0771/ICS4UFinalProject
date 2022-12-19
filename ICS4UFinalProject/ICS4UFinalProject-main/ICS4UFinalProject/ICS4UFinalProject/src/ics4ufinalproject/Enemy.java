@@ -1,6 +1,7 @@
 /*
  * B Cross, E Wilson, Y Zhang
  * Dec 16, 2022
+ * Creates an enemy for the player to face against
  */
 package ics4ufinalproject;
 import java.util.ArrayList;
