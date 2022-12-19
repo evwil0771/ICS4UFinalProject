@@ -14,7 +14,7 @@ public class Enemy implements Entity{
     private int height;
     private int width;
     private ArrayList<Attack> attacks;
-   private boolean boss;
+    private boolean boss;
     private boolean dead;
 
     /**
