@@ -1,6 +1,7 @@
 /*
  *B Cross, E Wilson, Y Zhang
  * Dec 15, 2022
+ * An interface for all entities in our program
  */
 package ics4ufinalproject;
 
