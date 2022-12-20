@@ -131,12 +131,8 @@ public class Protagonist implements Entity{
 
     /**
      * 
-     * @param x
-     * @param y
-     * @param h
-     * @param w 
      */
-    public void draw(int x, int y, int h, int w){
+    public void draw(){
         
     }
 
