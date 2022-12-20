@@ -11,12 +11,13 @@ package ics4ufinalproject;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class DrawingSurface extends JPanel implements MouseListener,Runnable {
+public class DrawingSurface extends JPanel implements MouseListener, Runnable {
 
     private Thread animator;
     private final int DELAY = 25;
@@ -32,9 +33,8 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
     private void doDrawing(Graphics g) {
         //the Graphics2D class is the class that handles all the drawing
         //must be casted from older Graphics class in order to have access to some newer methods
-        Graphics2D g2d = (Graphics2D)g;
-        
-        
+        Graphics2D g2d = (Graphics2D) g;
+
         background(g);
     }
 
@@ -48,9 +48,6 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
 
     //update the position of the ball
     //(we could do more complex game updates here)
-    
-    
-    
     //this method is called after the JPanel is added to the JFrame
     //we can perform start up tasks here
     @Override
@@ -59,24 +56,29 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
 
         animator = new Thread(this);
         animator.start();
+        for (int i = 0; i < 100; i++) {//create an arraylist of new star object
+            a[i] = new Stars(randomNum(0, 1000), randomNum(-1000, 0), randomNum(0, 4));
+        }
     }
 
-    public void background(Graphics g2d){
+    Stars[] a = new Stars[100];
+    
+    public void background(Graphics g2d) {
         g2d.setColor(new Color(0, 0, 0));
         g2d.fillRect(0, 0, 1000, 700);
         g2d.setColor(new Color(200, 200, 200));
-        
-        for(int i = 0 ; i < 20; i++){
-            g2d.fillOval(randomNum(1,1000), randomNum(1,700), 3, 12);
+
+        for (int i = 0; i < 100; i++) {
+            a[i].show(g2d);
+            a[i].update();
         }
-        
     }
-    
-    public void character(Graphics g2d){
+
+    public void character(Graphics g2d) {
         g2d.setColor(new Color(255, 255, 255));
         g2d.fillRect(0, 0, 50, 50);
     }
-    
+
     /**
      * Generate a random number in a range
      *
@@ -87,7 +89,7 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
     private int randomNum(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-    
+
     //this method is called only once, when the Thread starts
     @Override
     public void run() {
@@ -132,7 +134,7 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
     @Override
     public void mousePressed(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+
     }
 
     @Override
@@ -149,6 +151,27 @@ public class DrawingSurface extends JPanel implements MouseListener,Runnable {
     public void mouseExited(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public void keyPressed(KeyEvent e, Protagonist player, Attack deafult) {
+        //spawn();
+        //WASD
+        if (e.getKeyChar() == 'a') {
+            player.move(player.getXPos() - 1, 0);
+        } else if (e.getKeyChar() == 'd') {
+            player.move(player.getXPos() + 1, 0);
+        }
+        //Arrow keys
+        if (e.getKeyCode() == 37) {
+            player.move(player.getXPos() - 1, 0);
+        } else if (e.getKeyCode() == 39) {
+            player.move(player.getXPos() - 1, 0);
+        }
+    }
+/*
+    public void spawn() {
+        Attack deafult = new Attack(10, 0, 0, Color.RED);
+        Protagonist player = new Protagonist("player", 100, 50, 180, 5, 5, deafult);
+        deafult.move(player.getXPos(), player.getYPos());
+    }
+*/
 }
-
-
