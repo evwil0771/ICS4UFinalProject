@@ -83,6 +83,10 @@ public class Protagonist implements Entity{
     public int getXPos() {
         return x;
     }
+    
+    public void setXPos(int x){
+        this.x = x;
+    }
 
     /**
      * 
@@ -90,6 +94,10 @@ public class Protagonist implements Entity{
      */
     public int getYPos() {
         return y;
+    }
+    
+    public void setYPos(int y){
+        this.y = y;
     }
 
     /**
@@ -140,10 +148,11 @@ public class Protagonist implements Entity{
      * 
      * @param g
      */
-    public void draw(Graphics g, JFrame m){
+    public void draw(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         alien = new ImageIcon(this.getClass().getResource("Oh_hi_mark.webp")).getImage();
-        g2d.drawImage(alien, x - width/2, y - height/2, x + width/2, y + height/2, m);
+        g2d.drawImage(alien, x - width/2, y - height/2, width, height, DrawingSurface.class.getMethod("doDrawing", ));
+        DrawingSurface.class.getMethod(name, parameterTypes)
     }
 
     /**
@@ -151,9 +160,10 @@ public class Protagonist implements Entity{
      * @param x
      * @param y 
      */
-    public void move(int x, int y) {
+    public void move(int x, int y, Graphics g) {
         this.x = x;
         this.y = y;
+        draw(g);
     }
     
     /**
@@ -211,4 +221,3 @@ public class Protagonist implements Entity{
                 && this.attack.equals(p.attack);
     }
 }
-
