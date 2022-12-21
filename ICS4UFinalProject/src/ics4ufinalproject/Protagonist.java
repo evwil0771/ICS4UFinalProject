@@ -143,7 +143,7 @@ public class Protagonist implements Entity{
     public void draw(Graphics g, JFrame m){
         Graphics2D g2d = (Graphics2D) g;
         alien = new ImageIcon(this.getClass().getResource("Oh_hi_mark.webp")).getImage();
-        g2d.drawImage(alien, x, y, m);
+        g2d.drawImage(alien, x - width/2, y - height/2, x + width/2, y + height/2, m);
     }
 
     /**
