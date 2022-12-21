@@ -52,9 +52,17 @@ public class Enemy implements Entity{
     public int getXPos(){
         return x;
     }
+    
+    public void setXPos(int x){
+        this.x = x;
+    }
 
     public int getYPos(){
         return y;
+    }
+    
+    public void setYPos(int y){
+        this.y = y;
     }
 
     public int getWidth(){
