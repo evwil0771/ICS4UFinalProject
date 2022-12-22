@@ -5,12 +5,6 @@
  */
 package ics4ufinalproject;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
 public class Protagonist implements Entity{
     
     private String name;
@@ -21,7 +15,6 @@ public class Protagonist implements Entity{
     private int width;
     private Attack attack;
     private boolean dead;
-    private Image alien;
     
     /**
      * 
@@ -146,24 +139,12 @@ public class Protagonist implements Entity{
 
     /**
      * 
-     * @param g
-     */
-    public void draw(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        alien = new ImageIcon(this.getClass().getResource("Oh_hi_mark.webp")).getImage();
-        g2d.drawImage(alien, x - width/2, y - height/2, width, height, DrawingSurface.class.getMethod("doDrawing", ));
-        DrawingSurface.class.getMethod(name, parameterTypes)
-    }
-
-    /**
-     * 
      * @param x
      * @param y 
      */
-    public void move(int x, int y, Graphics g) {
+    public void move(int x, int y) {
         this.x = x;
         this.y = y;
-        draw(g);
     }
     
     /**
